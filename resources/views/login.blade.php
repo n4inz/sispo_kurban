@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{asset('img/svg/icon.svg')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('img/svg/baznas.png')}}" type="image/x-icon">
     <link href="/css/app.css" rel="stylesheet">
 
     <title>Login - SIMAP Tata Usaha</title>
@@ -13,7 +13,7 @@
     <div class="h-screen grid lg:grid-cols-2 ">
         <div class="flex justify-center items-center">
             <div class="flex flex-col items-center">
-                <img class="w-24 h-24" src="{{asset('img/logo-wikrama-bogor.png')}}" alt="" srcset="">
+                <img class="w-[150px]" src="{{ env('LOGO') }}" alt="" srcset="">
                 <p class="text-2xl text-primary font-bold mt-3">Masuk Untuk Akses Sistem</p>
                 <form class="w-full mt-16" action="{{route('auth')}}" method="post">
                     @csrf

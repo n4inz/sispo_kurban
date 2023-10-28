@@ -27,20 +27,20 @@
         @if ($user->role !== 'STUDENT')
         <div class="flex flex-wrap space-x-3">
             <div class="block p-6 text-center w-56 bg-orang rounded-lg border border-orange-300 shadow-md hover:bg-orange-400 dark:bg-orang dark:border-orang-700 dark:hover:bg-orang-700">
-                <h5 class="mb-2 text-2xl font-regular tracking-tight text-white dark:text-white">Total Pegawai</h5>
-                <h5 class="mt-6 mb-6 p-3 rounded-md bg-orange-300 text-6xl font-bold tracking-tight text-gray-100 dark:text-white">{{$users['employees']}}</h5>
+                <h5 class="mb-2 text-2xl font-regular tracking-tight text-white dark:text-white">Total Pendaftar</h5>
+                <h5 class="mt-6 mb-6 p-3 rounded-md bg-orange-300 text-6xl font-bold tracking-tight text-gray-100 dark:text-white">{{$datas['pendaftar']}}</h5>
             </div>
             <div class="block p-6 text-center w-56 bg-reb rounded-lg border border-red-300 shadow-md hover:bg-red-600 dark:bg-reb dark:border-red-700 dark:hover:bg-red-700">
-                <h5 class="mb-2 text-2xl font-regular tracking-tight text-white dark:text-white">Total Guru</h5>
-                <h5 class="mt-6 mb-6 p-3 rounded-md bg-red-400 text-6xl font-bold tracking-tight text-gray-100 dark:text-white">{{$users['teachers']}}</h5>
+                <h5 class="mb-2 text-2xl font-regular tracking-tight text-white dark:text-white">Total Kelompok</h5>
+                <h5 class="mt-6 mb-6 p-3 rounded-md bg-red-400 text-6xl font-bold tracking-tight text-gray-100 dark:text-white">{{$datas['kelompok']}}</h5>
             </div>
             <div class="block p-6 text-center w-56 bg-green-500 rounded-lg border border-green-300 shadow-md hover:bg-green-600 dark:bg-green-700 dark:border-green-700 dark:hover:bg-green-700">
-                <h5 class="mb-2 text-2xl font-regular tracking-tight text-white dark:text-white">Total Staf</h5>
-                <h5 class="mt-6 p-3 rounded-md bg-green-400 mb-6 text-6xl font-bold tracking-tight text-gray-100 dark:text-white">{{$users['staffs']}}</h5>
+                <h5 class="mb-2 text-2xl font-regular tracking-tight text-white dark:text-white">Total Khas Kurban</h5>
+                <h5 class="mt-6 p-3 rounded-md bg-green-400 mb-6 text-3xl font-bold tracking-tight text-gray-100 dark:text-white">Rp. {{ number_format($datas['saldoKhas'], 0, '.', '.')}}</h5>
             </div>
             <div class="block p-6 text-center w-56 bg-green-500 rounded-lg border border-green-300 shadow-md hover:bg-green-600 dark:bg-green-700 dark:border-green-700 dark:hover:bg-green-700">
-                <h5 class="mb-2 text-2xl font-regular tracking-tight text-white dark:text-white">Total Siswa</h5>
-                <h5 class="mt-6 p-3 rounded-md bg-green-400 mb-6 text-6xl font-bold tracking-tight text-gray-100 dark:text-white">{{$users['students']}}</h5>
+                <h5 class="mb-2 text-2xl font-regular tracking-tight text-white dark:text-white">Menunggu pembayaran</h5>
+                <h5 class="mt-6 p-3 rounded-md bg-green-400 mb-6 text-6xl font-bold tracking-tight text-gray-100 dark:text-white">{{$datas['waiting']}}</h5>
             </div>
         </div>
         @endif

@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function index(Request $request)
     {
-        $pakets = HewanKurban::query()->get();
+        $pakets = HewanKurban::query()->withCount('user_kelompok')->with('user_kelompok')->get();
         return view('index' , compact('pakets'));
     }
     public function check(Request $request){

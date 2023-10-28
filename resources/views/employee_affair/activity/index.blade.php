@@ -11,22 +11,7 @@
         Menunggu Konfirmasi
     </p>
 
-    <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-        <ul class="flex flex-wrap -mb-px" id="employeeTab" data-tabs-toggle="#employeeTabContent" role="tablist">
-            <li class="mr-2" role="presentation">
-                <button
-                    class="inline-block py-2 px-4 text-sm font-medium text-center text-gray-500 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300 active"
-                    id="employee-tab" data-tabs-target="#employee" type="button" role="tab" aria-controls="employee"
-                    aria-selected="true">Data Kegiatan</button>
-            </li>
-            <li class="mr-2" role="presentation">
-                <button
-                    class="inline-block py-2 px-4 text-sm font-medium text-center text-gray-500 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300"
-                    id="pribadi-tab" data-tabs-target="#pribadi" type="button" role="tab" aria-controls="pribadi"
-                    aria-selected="false">Pribadi</button>
-            </li>
-        </ul>
-    </div>
+
     <div id="employeeTabContent">
         <div class="rounded-lg" id="employee" role="tabpanel" aria-labelledby="employee-tab">
             

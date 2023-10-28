@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{asset('img/svg/icon.svg')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('img/svg/baznas.png')}}" type="image/x-icon">
+
     <link href="/css/app.css" rel="stylesheet">
 
     <title>Daftar Kurban - Baznas</title>
@@ -13,7 +14,7 @@
     <div class="h-screen grid lg:grid-cols-2 ">
         <div class="flex justify-center items-center ">
             <div class="flex flex-col items-center">
-                <img class="w-24 h-24" src="{{asset('img/logo-wikrama-bogor.png')}}" alt="" srcset="">
+                <img class="w-[150px]" src="{{ env('LOGO') }}" alt="" srcset="">
                 <p class="text-2xl text-primary font-bold mt-3">Daftar Kurban Baznas Parepare</p>
                 <form class="w-full mt-10" action="{{route('daftar')}}" method="post">
                     <div class="overflow-y-auto h-[350px] ">
@@ -35,7 +36,10 @@
                                 <option disabled selected value="--Pilih Hewan--">
                                     -- Pilih Paket --</option>
                                 @foreach ($pakets as $paket )
-                                    <option value="{{ $paket->harga_per_orang }}-{{ $paket->id }}">BKR-{{ $paket->id }}</option>
+                                    @if ($paket->user_kelompok_count < $paket->jumlah_peserta)
+                                    <option value="{{ $paket->harga_per_orang }}-{{ $paket->id }}">BKR-{{ $paket->id }} ({{ $paket->nama_hewan }})</option>
+                                        
+                                    @endif
                                     
                                 @endforeach
                             </select>

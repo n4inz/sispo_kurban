@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HewanKurban;
 use App\Models\Student;
+use App\Models\User;
+use App\Models\UserPaketKurban;
 use App\Service\Database\EmployeeService;
 use App\Service\Database\UserService;
 use Illuminate\Contracts\Session\Session;
@@ -53,6 +56,17 @@ class DashboardController extends Controller
         $users['students'] = $students;
         $users['employees'] = count($employees)+1;
 
-        return view('dashboard', compact('user', 'users'));
+        $pendaftar = User::where('role' ,'STUDENT')->count();
+        $kelompok = HewanKurban::query()->count();
+        $saldoKhas = UserPaketKurban::where('status_paid' ,UserPaketKurban::paid)->sum('jumlah_bayar');
+        $waiting = UserPaketKurban::where('status_paid' ,UserPaketKurban::waiting)->count();
+        $datas = [
+            'pendaftar' => $pendaftar,
+            'kelompok' => $kelompok,
+            'saldoKhas' => $saldoKhas,
+            'waiting' => $waiting,
+        ];
+        
+        return view('dashboard', compact('user' , 'datas'));
     }
 }

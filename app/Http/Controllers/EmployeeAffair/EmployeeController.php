@@ -172,8 +172,12 @@ class EmployeeController extends Controller
 
     public function exportEmployee()
     {
-        $data = [];
-        $pdf = Pdf::loadView('pdf.export_keuangan', $data);
+        
+        $datas = UserPaketKurban::query()->with('user')
+        ->where('status_paid' ,UserPaketKurban::paid)
+        ->get();
+       
+        $pdf = Pdf::loadView('pdf.export_keuangan', ['datas' => $datas]);
         return $pdf->download('kurban.pdf');
     }
 

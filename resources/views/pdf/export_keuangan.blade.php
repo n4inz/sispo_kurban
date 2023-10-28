@@ -34,6 +34,7 @@
     </div>
 
     <table>
+      
         <tr>
             <th>Nama</th>
             <th>Email</th>
@@ -41,25 +42,29 @@
             <th>Status</th>
             <th>Jumlah Bayar</th>
         </tr>
-        <tr>
-            <td>Nama 1</td>
-            <td>email1@example.com</td>
-            <td>Paket A</td>
-            <td>Bayar</td>
-            <td>500000</td>
-        </tr>
-        <tr>
-            <td>Nama 2</td>
-            <td>email2@example.com</td>
-            <td>Paket B</td>
-            <td>Bayar</td>
-            <td>750000</td>
-        </tr>
+            
+        @php
+            $total = 0;
+        @endphp
+        @foreach ($datas as $data )
+            @if ($data->user)
+                <tr>
+                    <td>{{ $data->user->name }}</td>
+                    <td>{{ $data->user->email }}</td>>
+                    <td>BKR-{{ $data->id }}</td>
+                    <td>Lunas</td>
+                    <td>{{ number_format($data->jumlah_bayar, 0, '.', '.') }}</td>
+                </tr>
+                @php
+                    $total += $data->jumlah_bayar;
+                @endphp
+            @endif
+        @endforeach
         <!-- Tambahkan baris lainnya sesuai data yang Anda miliki -->
         <tr>
             <td colspan="3"></td>
             <td>Total:</td>
-            <td>1250000</td> <!-- Ganti dengan total yang sesuai -->
+            <td>{{ number_format($total, 0, '.', '.') }}</td> <!-- Ganti dengan total yang sesuai -->
         </tr>
         <!-- Tambahkan baris lainnya sesuai data yang Anda miliki -->
     </table>

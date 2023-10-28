@@ -1073,6 +1073,18 @@ input:checked + .toggle-bg {
 .w-1\/2 {
   width: 50%;
 }
+.w-\[80px\] {
+  width: 80px;
+}
+.w-\[100px\] {
+  width: 100px;
+}
+.w-\[120px\] {
+  width: 120px;
+}
+.w-\[150px\] {
+  width: 150px;
+}
 .min-w-full {
   min-width: 100%;
 }
@@ -1620,6 +1632,10 @@ input:checked + .toggle-bg {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 .font-semibold {
   font-weight: 600;
