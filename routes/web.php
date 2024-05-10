@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 // Auth
 Route::get('/', [AuthController::class, 'index']);
 Route::get('/login', [AuthController::class, 'check'])->name('login');
+Route::get('/daftar-kurban', [AuthController::class, 'daftar_kurban'])->name('daftar-kurban');
+
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('auth');
 Route::post('/daftar', [AuthController::class, 'daftar'])->name('daftar');
 

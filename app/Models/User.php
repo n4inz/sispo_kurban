@@ -11,9 +11,9 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     const ADMIN = 'ADMIN';
-    const EMPLOYEE = 'EMPLOYEE';
+    const EMPLOYEE = 'EMPLOYEE';  // Masjid
     const HEADMASTER = 'HEADMASTER';
-    const STUDENT = 'STUDENT';
+    const STUDENT = 'STUDENT'; // Mandiri
 
     public $incrementing = false;
 

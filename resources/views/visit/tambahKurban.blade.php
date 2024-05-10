@@ -152,11 +152,11 @@
         </div>
     </div>
 
-  
+    @if ($user->role === 'ADMIN')
 
         @include('visit.modal._add_visit')
         @include('visit.modal._edit_visit')
-    
+    @endif
 
 @endsection
 

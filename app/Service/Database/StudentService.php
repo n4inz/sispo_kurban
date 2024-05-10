@@ -76,11 +76,11 @@ class StudentService{
         $user->name = $payload['nama'];
         $user->email = $payload['email'];
         $user->username = strtolower(explode(" ",$payload['nama'])[0]).$faker->numerify('####');
-        $user->password = bcrypt($user->username);
+        $user->password = bcrypt($payload['password']);
         $user->cupon = $user->username;
         $user->alamat = $payload['alamat'];
         $user->status = true;
-        $user->role = User::STUDENT;
+        $user->role =  $payload['kurban'];
 
         $user->save();
 
