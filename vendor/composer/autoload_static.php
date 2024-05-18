@@ -624,6 +624,7 @@ class ComposerStaticInit013aa996eaf3cd31343eea75e89fa723
         'App\\Models\\Employee' => __DIR__ . '/../..' . '/app/Models/Employee.php',
         'App\\Models\\EmployeeActivity' => __DIR__ . '/../..' . '/app/Models/EmployeeActivity.php',
         'App\\Models\\HewanKurban' => __DIR__ . '/../..' . '/app/Models/HewanKurban.php',
+        'App\\Models\\HewanKurbanV2' => __DIR__ . '/../..' . '/app/Models/HewanKurbanV2.php',
         'App\\Models\\Ijazah' => __DIR__ . '/../..' . '/app/Models/Ijazah.php',
         'App\\Models\\JenisHewan' => __DIR__ . '/../..' . '/app/Models/JenisHewan.php',
         'App\\Models\\Letter' => __DIR__ . '/../..' . '/app/Models/Letter.php',

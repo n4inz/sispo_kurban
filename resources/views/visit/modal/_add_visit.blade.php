@@ -48,9 +48,9 @@
                             >
                     </div>
                     <div class="mb-6">
-                        <label for="peserta"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Jumlah Peserta Kelompok</label>
-                        <input type="number" id="peserta" name="peserta"
+                        <label for="jumlah_hewan"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Jumlah Hewan</label>
+                        <input type="number" id="jumlah_hewan" name="jumlah_hewan"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                             placeholder="contoh: 7" required
                             >
@@ -58,17 +58,17 @@
                 </div>
                 <div class="flex-1 px-3">
                     <div class="mb-6">
-                        <label for="kode"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kode Kelompok</label>
-                        <input id="kode" name="kode" type="disbale"
+                        <label for="keluarga"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Keluarga</label>
+                        <input id="keluarga" name="keluarga" type="text"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
-                            readonly
+                            
                             >
                     </div>
                     <div class="mb-6">
-                        <label for="harga_per_orang"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Total Harga Per Orang (Rp)</label>
-                        <input type="number" id="harga_per_orang" name="harga_per_orang"
+                        <label for="alamat"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat</label>
+                        <input type="text" id="alamat" name="alamat"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
                             >
                     </div>

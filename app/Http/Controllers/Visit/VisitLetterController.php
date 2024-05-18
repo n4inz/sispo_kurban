@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\VisitFinishesExport;
 use App\Models\HewanKurban;
+use App\Models\HewanKurbanV2;
 use App\Models\JenisHewan;
 use App\Models\VisitLetter;
 use App\Service\Database\HewanKurban\HewanKurbanService;
@@ -25,7 +26,7 @@ class VisitLetterController extends Controller
         $visit = $visitDB->index()['data'] ?? [];
         
         $tgl_visits = [];
-
+        
         return view('visit.index', compact('user', 'tgl_visits'));
     }
 
@@ -70,27 +71,22 @@ class VisitLetterController extends Controller
     }
 
     public function create(Request $request)
-    {
-        $visitDB = new HewanKurban();
+    {   
+        $user = $request->user();
+        
+        $visitDB = new HewanKurbanV2();
 
+        $visitDB->user_id = $user->id;
         $visitDB->nama_hewan = $request->nama_hewan;
         $visitDB->jenis = $request->jenis;
         $visitDB->harga = $request->harga;
-        $visitDB->jumlah_peserta = $request->peserta;
-        $visitDB->harga_per_orang = $request->harga_per_orang;
+        $visitDB->jumlah_hewan = $request->jumlah_hewan;
+        $visitDB->nama_keluarga= $request->keluarga;
+        $visitDB->alamat= $request->alamat;
         $visitDB->ket= $request->ket;
-
         $visitDB->save();
+        return $request->all();        
 
-        JenisHewan::updateOrCreate(
-        [   'hewan' => $request->nama_hewan ,
-            'jenis' => $request->jenis
-        ], 
-        [
-            'hewan' => $request->nama_hewan , 
-            'jenis' => $request->jenis
-        ]
-        );
         return redirect()->route('visit_letter.index')
         ->with('success', 'Data berhasil ditambahkan');
     }

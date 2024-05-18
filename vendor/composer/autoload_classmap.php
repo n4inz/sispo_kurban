@@ -43,6 +43,7 @@ return array(
     'App\\Models\\Employee' => $baseDir . '/app/Models/Employee.php',
     'App\\Models\\EmployeeActivity' => $baseDir . '/app/Models/EmployeeActivity.php',
     'App\\Models\\HewanKurban' => $baseDir . '/app/Models/HewanKurban.php',
+    'App\\Models\\HewanKurbanV2' => $baseDir . '/app/Models/HewanKurbanV2.php',
     'App\\Models\\Ijazah' => $baseDir . '/app/Models/Ijazah.php',
     'App\\Models\\JenisHewan' => $baseDir . '/app/Models/JenisHewan.php',
     'App\\Models\\Letter' => $baseDir . '/app/Models/Letter.php',
