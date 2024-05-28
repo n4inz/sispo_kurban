@@ -3,6 +3,7 @@
 namespace App\Service\Database\HewanKurban;
 
 use App\Models\HewanKurban;
+use App\Models\HewanKurbanV2;
 use App\Models\VisitLetter;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
@@ -19,7 +20,7 @@ class HewanKurbanService{
         $status = $filter['status'] ?? null;
         $tanggal = $filter['tanggal'] ?? null;
 
-        $query = HewanKurban::orderBy('created_at', $orderBy);
+        $query = HewanKurbanV2::orderBy('created_at', $orderBy);
 
          if ($tanggal !== null) {
             $query->where('tanggal', $tanggal);

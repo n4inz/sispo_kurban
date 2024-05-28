@@ -123,6 +123,7 @@ Route::group(['middleware' => ['auth', 'role:ADMIN,EMPLOYEE,HEADMASTER,STUDENT']
         Route::prefix('visit-letter')->name('visit_letter.')->group(function () {
             Route::get('/', [Visit\VisitLetterController::class, 'index'])->name('index');
             Route::post('/', [Visit\VisitLetterController::class, 'create'])->name('create');
+            Route::post('/import', [Visit\VisitLetterController::class, 'import'])->name('import');
             Route::get('/{visitId}/detail', [Visit\VisitLetterController::class, 'detail'])->name('detail');
             Route::patch('/{visitId}/update', [Visit\VisitLetterController::class, 'update'])->name('update');
             Route::delete('/{visitId}/delete', [Visit\VisitLetterController::class, 'delete'])->name('delete');

@@ -34,10 +34,10 @@
                     <div class="flex flex-row">
                         
                    
-                        {{-- <a href="{{route('')}}" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                        <button type="button" data-modal-toggle="modal-add-visit-import"  class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                             <i class="fa-solid fa-file-export mr-2"></i>
-                            Export
-                        </a> --}}
+                            Import
+                        </button>
                         <button type="button" data-modal-toggle="modal-add-visit" class="text-white bg-primary opacity-90 hover:bg-blue-900 focus:ring-4 focus:ring-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-primary dark:hover:bg-blue-900 dark:focus:ring-blue-700">
                             <i class="fa-solid fa-user-plus mr-2"></i>
                             Tambah
@@ -58,11 +58,7 @@
                                         </th>
                                         <th scope="col"
                                             class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
-                                            Kode Kelompok
-                                        </th>
-                                        <th scope="col"
-                                            class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
-                                            Hewan
+                                            Nama Hewan
                                         </th>
                                         <th scope="col"
                                             class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
@@ -74,18 +70,17 @@
                                         </th>
                                         <th scope="col"
                                             class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
-                                            Jumlah Peserta
+                                            Jumlah Hewan
                                         </th>
                                         <th scope="col"
                                             class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
-                                            Status
+                                            Nama Keluarga
                                         </th>
-                                        @if($user->role === 'ADMIN')
                                         <th scope="col"
-                                            class="rounded-r-lg py-6 px-6 text-xs font-medium tracking-wider text-center text-white uppercase dark:text-gray-400">
-                                            Aksi
+                                        class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
+                                            Alamat
                                         </th>
-                                        @endif
+                                     
                                     </tr>
                                 </thead>
                                 <tbody id="render-jadwal"></tbody>
@@ -117,7 +112,7 @@
                                         </th>
                                         <th scope="col"
                                             class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
-                                            Hewan
+                                            Nama Hewan
                                         </th>
                                         <th scope="col"
                                             class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
@@ -129,18 +124,17 @@
                                         </th>
                                         <th scope="col"
                                             class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
-                                            Jumlah Peserta
+                                            Jumlah Hewan
                                         </th>
                                         <th scope="col"
                                             class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
-                                            Status
+                                            Nama Keluarga
                                         </th>
-                                        @if($user->role === 'ADMIN')
                                         <th scope="col"
-                                            class="rounded-r-lg py-6 px-6 text-xs font-medium tracking-wider text-center text-white uppercase dark:text-gray-400">
-                                            Aksi
+                                        class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
+                                            Alamat
                                         </th>
-                                        @endif
+                                     
                                     </tr>
                                 </thead>
                                 <tbody id="render-arsip"></tbody>
@@ -153,7 +147,7 @@
     </div>
 
   
-
+        @include('visit.modal._add_visit_import_excel')
         @include('visit.modal._add_visit')
         @include('visit.modal._edit_visit')
     
@@ -246,33 +240,38 @@
                         </td>
                         <td
                             class="rounded-l-lg py-6 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            KRB-${key + 1}
+                            ${data.nama_hewan}
                         </td>
                         <td class="py-6 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                             <div class="whitespace-normal w-46">
-                                ${data.nama_hewan}
+                                ${data.jenis}
                             </div>
                         </td>
                         <td class="py-6 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                            ${data.jenis}
+                            ${data.harga}
                         </td>
                         <td class="py-6 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                            Rp. ${data.harga}
+                            ${data.jumlah_hewan}
                         </td>
                         <td class= "py-6 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                             <div class="whitespace-normal w-24">
-                                ${data.jumlah_peserta}
+                                ${data.nama_keluarga}
+                            </div>
+                        </td>
+                        <td class= "py-6 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                            <div class="whitespace-normal w-24">
+                                ${data.alamat}
                             </div>
                         </td>
                         `
                 if (role === 'EMPLOYEE' || role === 'HEADMASTER') {
-                    html += `
-                        <td class= "py-6 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                            <div class="whitespace-normal w-24">
-                                ${data.status}
-                            </div>
-                        </td>
-                        `
+                    // html += `
+                    //     <td class= "py-6 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    //         <div class="whitespace-normal w-24">
+                    //             ${data.status}
+                    //         </div>
+                    //     </td>
+                    //     `
                         html += `</tr>`
 
                     $(`#render-${id}`).html(html);

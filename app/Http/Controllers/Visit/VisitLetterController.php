@@ -3,19 +3,23 @@
 namespace App\Http\Controllers\Visit;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+
 use App\Service\Database\VisitLetterService;
-use App\Service\Database\UserService;
+
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\VisitFinishesExport;
+use App\Imports\KurbanImport;
 use App\Models\HewanKurban;
 use App\Models\HewanKurbanV2;
-use App\Models\JenisHewan;
+
 use App\Models\VisitLetter;
 use App\Service\Database\HewanKurban\HewanKurbanService;
+use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class VisitLetterController extends Controller
 {
@@ -72,6 +76,8 @@ class VisitLetterController extends Controller
 
     public function create(Request $request)
     {   
+        //https://medium.com/@akhwan90/laravel-queue-membuat-fitur-import-data-pegawai-excel-3f1561b25e0
+        // https://opensource.box.com/spout/getting-started/
         $user = $request->user();
         
         $visitDB = new HewanKurbanV2();
@@ -89,6 +95,16 @@ class VisitLetterController extends Controller
 
         return redirect()->route('visit_letter.index')
         ->with('success', 'Data berhasil ditambahkan');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new KurbanImport(),$request->file('file'));
+        // $filePath = $request->file('file');
+      
+
+        return redirect()->back()->with('Success', 'Insert data kurban berhasil');
+       
     }
 
 
