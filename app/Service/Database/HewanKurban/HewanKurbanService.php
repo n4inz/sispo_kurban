@@ -19,9 +19,12 @@ class HewanKurbanService{
         $no_surat = $filter['no_surat'] ?? null;
         $status = $filter['status'] ?? null;
         $tanggal = $filter['tanggal'] ?? null;
-
+        $user = request()->user();
         $query = HewanKurbanV2::orderBy('created_at', $orderBy);
 
+        if($user->role !== 'ADMIN'){
+            $query->where('user_id' , $user->id);
+        }
          if ($tanggal !== null) {
             $query->where('tanggal', $tanggal);
         }

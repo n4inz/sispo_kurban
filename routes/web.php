@@ -62,7 +62,7 @@ Route::group(['middleware' => ['auth', 'role:ADMIN,EMPLOYEE,HEADMASTER,STUDENT']
     });
 
     // Keuangan
-    Route::group(['middleware' => ['auth', 'role:ADMIN,EMPLOYEE,HEADMASTER']], function () {
+    Route::group(['middleware' => ['auth', 'role:ADMIN,EMPLOYEE,HEADMASTER,STUDENT']], function () {
 
         Route::prefix('employee')->name('employee.')->group(function () {
             //

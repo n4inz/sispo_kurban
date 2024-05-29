@@ -14,7 +14,7 @@
         <div class="flex justify-center items-center">
             <div class="flex flex-col items-center">
                 <img class="w-[150px]" src="{{ env('LOGO') }}" alt="" srcset="">
-                <p class="text-2xl text-primary font-bold mt-3">Masuk Untuk Akses Sistem</p>
+                <p class="text-2xl text-[#005331] font-bold mt-3">Masuk Untuk Akses Sistem</p>
                 <form class="w-full mt-16" action="{{route('auth')}}" method="post">
                     @csrf
                     <div class="relative z-0 mb-6 w-full group">
@@ -34,14 +34,14 @@
                         </div>
                     </div>
                     <div class="flex items-start mb-6">
-                        <div class="flex items-center h-5">
+                        {{-- <div class="flex items-center h-5">
                             <input id="remember" aria-describedby="remember" type="checkbox" name="remember" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary dark:ring-offset-gray-800">
-                        </div>
-                        <div class="ml-3 text-sm">
-                            <label for="remember" class="text-gray-900 dark:text-gray-300">Ingat Saya</label>
-                        </div>
+                        </div> --}}
+                        <a href="{{ route('daftar-kurban') }}" class="ml-3 text-sm">
+                            <label for="remember" class="text-gray-900 hover:cursor-pointer dark:text-gray-300">Daftar Kurban</label>
+                        </a>
                     </div>
-                    <button type="submit" class="text-white bg-primary hover:bg-primary focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary">Masuk</button>
+                    <button type="submit" class="text-white bg-[#005331]  focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary">Masuk</button>
                 </form>
                 <div id="alert-failed" class="mt-6 bg-gray-100 rounded border-2 border-gray-300 p-4 text-center invisible text-md font-bold">
                     <p class="text-red-700">Gagal Masuk</p>
@@ -50,8 +50,8 @@
                 </div>
             </div>
         </div>
-        <div class="h-screen hidden lg:block xl:-ml-28 2xl:-ml-36" style="background-color: #1F3986">
-            <div class="h-screen bg-no-repeat" style="background-image: url('{{asset('img/svg/login-right.svg')}}')"></div>
+        <div class="relative h-screen hidden lg:block xl:-ml-28 2xl:-ml-36" style="background-color: #005331;">
+            <div class="absolute bottom-0 w-full h-full bg-no-repeat" style="background-image: url('https://www.suarasurabaya.net/wp-content/uploads/2019/12/kk229303_clip10.jpg')"></div>
         </div>
     </div>
     <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>

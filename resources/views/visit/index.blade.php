@@ -223,7 +223,7 @@
                     <tr
                         class="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 dark:border-gray-600">
                         <td class="rounded-lg py-6 px-6 text-sm font-medium text-center text-gray-900 whitespace-nowrap dark:text-white" colspan="${role === 'ADMIN' ? 8 : 6}">
-                            Tidak dapat menemukan data untuk ${id}
+                            Tidak dapat menemukan data
                         </td>
                     </tr>
                 `
@@ -279,36 +279,36 @@
                     $(`#table-${id}`).removeClass('dataTable');
                 }
 
-                if (role === 'ADMIN'){
-                    html += `
-                            <td class="py-6 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                ${data.status}
-                            </td>
-                            <td class="rounded-r-lg py-6 px-6 text-sm text-center font-medium flex-nowrap">
-                                <div class="inline-flex" role="group">
-                                    <a href="{!! URL::to('/visit-letter/${data.id}/detail') !!}" class="text-white bg-primary opacity-90 hover:bg-blue-900 focus:ring-4 focus:ring-blue-700 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:bg-primary dark:hover:bg-blue-900 dark:focus:ring-blue-700">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </a>
-                                    <button type="button"
-                                onclick="btnEditVisit('${data.id}', '${data.nama_hewan}', '${data.jenis}', '${data.harga}', '${data.jumlah_peserta}', '${data.harga_per_orang}', '${data.ket}')"
-                                data-modal-toggle="modal-edit-visit"
-                                class="text-white bg-yellow-400 opacity-90 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </button>
-                                    <form
-                                        action="${deleteRoute}"
-                                        method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit"
-                                            class="text-white bg-red-700 opacity-90 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                        `
-                }
+                // if (role === 'ADMIN'){
+                //     html += `
+                //             <td class="py-6 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                //                 ${data.status}
+                //             </td>
+                //             <td class="rounded-r-lg py-6 px-6 text-sm text-center font-medium flex-nowrap">
+                //                 <div class="inline-flex" role="group">
+                //                     <a href="{!! URL::to('/visit-letter/${data.id}/detail') !!}" class="text-white bg-primary opacity-90 hover:bg-blue-900 focus:ring-4 focus:ring-blue-700 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:bg-primary dark:hover:bg-blue-900 dark:focus:ring-blue-700">
+                //                         <i class="fa-solid fa-eye"></i>
+                //                     </a>
+                //                     <button type="button"
+                //                 onclick="btnEditVisit('${data.id}', '${data.nama_hewan}', '${data.jenis}', '${data.harga}', '${data.jumlah_peserta}', '${data.harga_per_orang}', '${data.ket}')"
+                //                 data-modal-toggle="modal-edit-visit"
+                //                 class="text-white bg-yellow-400 opacity-90 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+                //                 <i class="fa-solid fa-pen-to-square"></i>
+                //             </button>
+                //                     <form
+                //                         action="${deleteRoute}"
+                //                         method="POST" enctype="multipart/form-data">
+                //                         @csrf
+                //                         @method('delete')
+                //                         <button type="submit"
+                //                             class="text-white bg-red-700 opacity-90 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                //                             <i class="fa-solid fa-trash"></i>
+                //                         </button>
+                //                     </form>
+                //                 </div>
+                //             </td>
+                //         `
+                // }
                 html += `</tr>`
             });
             $(`#render-${id}`).html(html);

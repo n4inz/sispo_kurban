@@ -10,7 +10,7 @@
         </a>
     </li>
     @endif
-    @if ($user->role == 'ADMIN' || $user->role == 'EMPLOYEE' || $user->role == 'HEADMASTER')
+    @if ($user->role == 'ADMIN' || $user->role == 'EMPLOYEE' || $user->role == 'HEADMASTER' || $user->role == 'STUDENT')
     <li>
         <a href="{{route('visit_letter.index')}}"
             class="{{Route::currentRouteName() === 'visit_letter.index' || Route::currentRouteName() === 'visit_letter.detail' ? 'border-l-8 border-l-primary bg-gray-100 -ml-2' : '' }} flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -18,7 +18,7 @@
             <span class="ml-3">Hewan Kurban</span>
         </a>
     </li>
-    @if ($user->role !== 'EMPLOYEE')
+    {{-- @if ($user->role !== 'EMPLOYEE')
     <li>
         <a href="{{route('paket.kurban')}}"
             class="{{Route::currentRouteName() === 'paket.kurban' ? 'border-l-8 border-l-primary bg-gray-100 -ml-2' : '' }} flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -26,10 +26,10 @@
             <span class="ml-3">Kelompok Kurban</span>
         </a>
     </li>
-    @endif
+    @endif --}}
     @endif
     @if ($user->role == 'ADMIN' || $user->role == 'HEADMASTER'|| $user->role == 'EMPLOYEEss')
-    <li>
+    {{-- <li>
         <button type="button"
             class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             aria-controls="dropdown-kepegawaian" data-collapse-toggle="dropdown-kepegawaian">
@@ -60,11 +60,11 @@
                 </a>
             </li>
         </ul>
-    </li>
+    </li> --}}
 
     @else
 
-        @if ($user->role !== 'EMPLOYEE')
+        @if ($user->role !== 'EMPLOYEE' AND $user->role !== 'STUDENT')
         <li>
             <button type="button"
                 class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"

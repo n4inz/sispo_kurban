@@ -2,7 +2,7 @@
     <div class="px-3 py-4 rounded dark:bg-gray-800 ">
         <div class="text-center">
             <img class="mx-auto w-24 mb-1" src="{{ env('LOGO') }}" alt="" srcset="">
-            <h4 class="font-semibold text-blue-800">Baznas Kurban Berasama</h4>
+            <h4 class="font-semibold text-[#005331]">Baznas Kurban Berasama</h4>
         </div>
         @include('layout.sidebar._menu')
     </div>
