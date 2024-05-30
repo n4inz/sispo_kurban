@@ -25,23 +25,26 @@
             <img class="max-w-md" src="{{asset('img/svg/vector-user-dashboard.svg')}}" alt="" srcset="">
         </div>
         @else
-            <div class="flex  justify-between p-5  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <div>
-                    <canvas class="w-full h-96" id="myChartLine"></canvas>
-                </div>
-
-            
-            </div>
-
-            <div class="flex space-x-6 justify-between p-5  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <div>
-                    <canvas class="w-full h-96" id="myChart"></canvas>
-                </div>
-
-                <div >
-                    <canvas class="w-full h-96" id="myChart2"></canvas>
-                </div>
+            <div class="space-y-4">
+                <div class="flex  justify-between p-5  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <div>
+                        <canvas class="w-full h-96" id="myChartLine"></canvas>
+                    </div>
+    
                 
+                </div>
+    
+                <div class="flex space-x-6 justify-between p-5  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <div>
+                        <canvas class="w-full h-96" id="myChart"></canvas>
+                    </div>
+    
+                    <div >
+                        <canvas class="w-full h-96" id="myChart2"></canvas>
+                    </div>
+                    
+    
+                </div>
 
             </div>
         @endif

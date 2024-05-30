@@ -15,6 +15,7 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
+        
         $user = Auth::user();
 
         $employeeDB = new EmployeeService;
