@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 28, 2023 at 05:25 AM
--- Server version: 8.0.34-0ubuntu0.20.04.1
--- PHP Version: 7.4.33
+-- Waktu pembuatan: 03 Jun 2024 pada 11.41
+-- Versi server: 8.0.36-0ubuntu0.20.04.1
+-- Versi PHP: 8.1.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agenda_meetings`
+-- Struktur dari tabel `agenda_meetings`
 --
 
 CREATE TABLE `agenda_meetings` (
@@ -43,7 +43,7 @@ CREATE TABLE `agenda_meetings` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `certificates`
+-- Struktur dari tabel `certificates`
 --
 
 CREATE TABLE `certificates` (
@@ -62,7 +62,7 @@ CREATE TABLE `certificates` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employees`
+-- Struktur dari tabel `employees`
 --
 
 CREATE TABLE `employees` (
@@ -90,7 +90,7 @@ CREATE TABLE `employees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `employees`
+-- Dumping data untuk tabel `employees`
 --
 
 INSERT INTO `employees` (`id`, `nama`, `status_pegawai`, `alamat`, `nip`, `niy_nigk`, `nuptk`, `jenis_ptk`, `sk_pengangkatan`, `tmt_pengangkatan`, `lembaga_pengangkatan`, `sk_cpns`, `tmt_pns`, `sumber_gaji`, `kartu_pegawai`, `kartu_suami`, `kartu_istri`, `ktp`, `kk`, `created_at`, `updated_at`) VALUES
@@ -102,7 +102,7 @@ INSERT INTO `employees` (`id`, `nama`, `status_pegawai`, `alamat`, `nip`, `niy_n
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee_activities`
+-- Struktur dari tabel `employee_activities`
 --
 
 CREATE TABLE `employee_activities` (
@@ -118,7 +118,7 @@ CREATE TABLE `employee_activities` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hewan_kurbans`
+-- Struktur dari tabel `hewan_kurbans`
 --
 
 CREATE TABLE `hewan_kurbans` (
@@ -136,19 +136,53 @@ CREATE TABLE `hewan_kurbans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `hewan_kurbans`
+-- Dumping data untuk tabel `hewan_kurbans`
 --
 
 INSERT INTO `hewan_kurbans` (`id`, `nama_hewan`, `jenis`, `harga`, `harga_per_orang`, `jumlah_peserta`, `ket`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 'Sapi', 'Beatae', 830000, 120000, 19, 'Tempora dolore qui q', 0, '2023-10-21 03:40:00', '2023-10-20 23:47:31', '2023-10-21 03:40:00'),
-(2, 'Sapi', 'Deserunt non qui dol', 60, 59, 73, 'Libero libero ut eli', 0, NULL, '2023-10-21 03:34:41', '2023-10-21 03:34:41'),
+(2, 'Sapi', 'Deserunt non qui dol', 60, 59, 4, 'Libero libero ut eli', 0, NULL, '2023-10-21 03:34:41', '2023-10-21 03:34:41'),
 (3, 'Sapi', 'Fuga Architecto qui', 13, 26, 43, 'Et aut dolor dolorem', 0, NULL, '2023-10-21 03:40:07', '2023-10-21 03:40:07'),
 (4, 'Sapi', 'Minus ipsum beatae e', 9, 80, 31, 'Alias accusantium is', 0, NULL, '2023-10-21 03:40:12', '2023-10-21 03:40:12');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ijazah`
+-- Struktur dari tabel `hewan_kurban_v2_s`
+--
+
+CREATE TABLE `hewan_kurban_v2_s` (
+  `id` bigint UNSIGNED NOT NULL,
+  `user_id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_hewan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `harga` int NOT NULL,
+  `jumlah_hewan` int NOT NULL,
+  `nama_keluarga` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ket` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `hewan_kurban_v2_s`
+--
+
+INSERT INTO `hewan_kurban_v2_s` (`id`, `user_id`, `nama_hewan`, `jenis`, `harga`, `jumlah_hewan`, `nama_keluarga`, `alamat`, `ket`, `created_at`, `updated_at`) VALUES
+(4, '28815d7b-681a-4dc5-9abf-f0c8081d1324', 'Sapi', 'Pedaging', 10000000, 1, 'Keluarga A', 'Jl Bukit Madani', 'Testig Ket 1', '2019-05-27 19:15:01', '2024-05-27 19:15:01'),
+(5, '28815d7b-681a-4dc5-9abf-f0c8081d1324', 'Domba', 'Pedaging V1', 3000000, 1, 'Keluarga B', 'Jl Mawar', 'Testig Ket 2', '2019-05-27 19:15:01', '2024-05-27 19:15:01'),
+(6, '28815d7b-681a-4dc5-9abf-f0c8081d1324', 'Sapi', 'Pedaging', 10000000, 1, 'Keluarga A', 'Jl Bukit Madani', 'Testig Ket 1', '2020-05-27 19:35:01', '2024-05-27 19:35:01'),
+(7, '28815d7b-681a-4dc5-9abf-f0c8081d1324', 'Domba', 'Pedaging V1', 3000000, 1, 'Keluarga B', 'Jl Mawar', 'Testig Ket 2', '2022-05-27 19:35:01', '2024-05-27 19:35:01'),
+(8, '37b378ab-c2a6-47d7-bf1d-a70b61d1dc4f', 'Sapi', 'Pedaging', 10000000, 1, 'Keluarga A', 'Jl Bukit Madani', 'Testig Ket 1', '2022-05-28 17:53:45', '2024-05-28 17:53:45'),
+(9, '37b378ab-c2a6-47d7-bf1d-a70b61d1dc4f', 'Domba', 'Pedaging V1', 3000000, 1, 'Keluarga B', 'Jl Mawar', 'Testig Ket 2', '2024-05-28 17:53:45', '2024-05-28 17:53:45'),
+(10, 'e622c53d-dfac-34a4-acd3-7bdabf07e649', 'Kambing', 'Aliqua Aliquip expl', 83, 40, 'Dolor sapiente dolor', 'Aspernatur delectus', 'Ab maxime sed est p', '2024-05-29 22:31:45', '2024-05-29 22:31:45'),
+(11, 'e622c53d-dfac-34a4-acd3-7bdabf07e649', 'Kambing', 'Aliqua Aliquip expl', 83, 40, 'Dolor sapiente dolor', 'Aspernatur delectus', 'Ab maxime sed est p', '2024-05-29 22:32:13', '2024-05-29 22:32:13');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `ijazah`
 --
 
 CREATE TABLE `ijazah` (
@@ -172,7 +206,7 @@ CREATE TABLE `ijazah` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_hewans`
+-- Struktur dari tabel `jenis_hewans`
 --
 
 CREATE TABLE `jenis_hewans` (
@@ -185,7 +219,7 @@ CREATE TABLE `jenis_hewans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `jenis_hewans`
+-- Dumping data untuk tabel `jenis_hewans`
 --
 
 INSERT INTO `jenis_hewans` (`id`, `hewan`, `jenis`, `deleted_at`, `created_at`, `updated_at`) VALUES
@@ -197,7 +231,7 @@ INSERT INTO `jenis_hewans` (`id`, `hewan`, `jenis`, `deleted_at`, `created_at`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `letters`
+-- Struktur dari tabel `letters`
 --
 
 CREATE TABLE `letters` (
@@ -215,7 +249,7 @@ CREATE TABLE `letters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `letters`
+-- Dumping data untuk tabel `letters`
 --
 
 INSERT INTO `letters` (`id`, `pengirim`, `jenis`, `no_surat`, `tgl_surat`, `tgl_terima`, `perihal`, `sifat`, `lampiran`, `created_at`, `updated_at`) VALUES
@@ -224,7 +258,7 @@ INSERT INTO `letters` (`id`, `pengirim`, `jenis`, `no_surat`, `tgl_surat`, `tgl_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `letter_dispositions`
+-- Struktur dari tabel `letter_dispositions`
 --
 
 CREATE TABLE `letter_dispositions` (
@@ -240,7 +274,7 @@ CREATE TABLE `letter_dispositions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `meetings`
+-- Struktur dari tabel `meetings`
 --
 
 CREATE TABLE `meetings` (
@@ -261,7 +295,7 @@ CREATE TABLE `meetings` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -271,7 +305,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -298,12 +332,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (21, '2023_10_21_215906_create_user_paket_kurbans_table', 8),
 (22, '2023_10_22_023219_later_colum_alamat_on_table_users', 9),
 (23, '2023_10_22_061706_alter_colum_status_paid_on_table_user_paket_kurbans', 10),
-(24, '2023_10_22_083413_alter_column_bukti_img_on_table', 11);
+(24, '2023_10_22_083413_alter_column_bukti_img_on_table', 11),
+(27, '2024_05_18_124549_create_hewan_kurban_v2_s_table', 12);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notulas`
+-- Struktur dari tabel `notulas`
 --
 
 CREATE TABLE `notulas` (
@@ -323,7 +358,7 @@ CREATE TABLE `notulas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personal_access_tokens`
+-- Struktur dari tabel `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -341,7 +376,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student`
+-- Struktur dari tabel `student`
 --
 
 CREATE TABLE `student` (
@@ -359,7 +394,7 @@ CREATE TABLE `student` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -379,15 +414,17 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `userable_id`, `email`, `name`, `username`, `password`, `role`, `status`, `remember_token`, `created_at`, `updated_at`, `cupon`, `alamat`) VALUES
 ('0f0fae7a-a253-44e4-ae96-2517d23bceb0', '6c13cf83-2ee4-41f1-959f-b3f353daedd5', 'gewydiq@mailinator.com', 'Vel est architecto', 'vel2033', '$2y$10$jJRb.tPkwQqouU.gjhluBeHh0tcc6pL/wWJXZDT6Xmd/EGQCa3Wwe', 'STUDENT', 1, NULL, '2023-10-21 18:40:05', '2023-10-21 18:40:05', 'vel2033', 'Culpa magna corporis'),
 ('130498be-3f7b-498a-a782-9392c527bcd1', '7c2e4d1d-9f0b-44e5-be1a-70a5ee7ba131', 'tedibig@mailinator.com', 'Magna voluptatem ani', 'magna7359', '$2y$10$fhlECR2x7nQm3k4/WgVRoueCE6D9QYFXSLH9/9CbTLBf2e6fW/U0a', 'STUDENT', 1, NULL, '2023-10-21 14:34:26', '2023-10-21 14:34:26', '$2y$10$dPo.aynx9Zghj.rOPJeadek01.MznQNamOta9.PaDMO3mLneVMQ2u', NULL),
 ('1eb27308-9497-37f8-9e94-1120faf02a0e', '9b07aa15-5055-3503-bf09-0f439b00837e', 'panitia@gmail.com', 'Anibal Doyle', 'panitia', '$2y$10$rN0aLB1TVI/Je0zk5AisCuSxBwU5VJs39EqGPwIwQNfu/R5vr2aza', 'EMPLOYEE', 1, NULL, '2023-03-24 23:41:35', '2023-03-24 23:41:35', NULL, NULL),
-('1fcece5f-e231-4b35-b532-493c64f8ab87', '6ddf19f1-41fb-498d-a452-11a1f48b649a', 'nujyne@mailinator.com', 'Aut vero explicabo', 'aut8672', '$2y$10$VUfziMsd4qePxSwt7pnQJOtOow94dGjntcy3KPpHATvMO1rSSwgP6', 'STUDENT', 1, NULL, '2023-10-21 15:23:32', '2023-10-21 15:23:32', 'aut8672', NULL),
+('1fcece5f-e231-4b35-b532-493c64f8ab87', '6ddf19f1-41fb-498d-a452-11a1f48b649a', 'bintangtriadmaja@gmail.com\n', 'Aut vero explicabo', 'aut8672', '$2y$10$VUfziMsd4qePxSwt7pnQJOtOow94dGjntcy3KPpHATvMO1rSSwgP6', 'STUDENT', 1, NULL, '2023-10-21 15:23:32', '2023-10-21 15:23:32', 'aut8672', NULL),
+('28815d7b-681a-4dc5-9abf-f0c8081d1324', 'f85aee6d-8177-48fd-98ee-673a116a8c60', 'nainmo@ymail.com', 'nain', 'nain4708', '$2y$10$liCyRj/aqGBepHiS.K03vedaSdKTaRwzu9h7EJcayOdDUVSeYZbsi', 'EMPLOYEE', 1, NULL, '2024-05-07 00:57:46', '2024-05-07 00:57:46', 'nain4708', NULL),
 ('2e5618cd-5b9b-45b9-b623-2c79a43ebeec', 'fc99a2ac-1f7a-4a20-9f9e-a1df2130575b', 'kibuce@mailinator.com', 'Nemo nisi ut officia', 'nemo1004', '$2y$10$swsb5jYp40LY0iaeRArx3uyGyMwVqs7cPx4exKFSk7AkoTOHPtJmG', 'STUDENT', 1, NULL, '2023-10-21 17:44:50', '2023-10-21 17:44:50', 'nemo1004', NULL),
+('37b378ab-c2a6-47d7-bf1d-a70b61d1dc4f', '0e127b8e-68a6-474f-b6f5-62bfba0720d5', 'nain@mail.com', 'Nain', 'nain1732', '$2y$10$liCyRj/aqGBepHiS.K03vedaSdKTaRwzu9h7EJcayOdDUVSeYZbsi', 'STUDENT', 1, NULL, '2024-05-07 00:50:57', '2024-05-07 00:50:57', 'nain1732', NULL),
 ('41de9d8f-8008-4106-9c30-bbb9422232d1', '7f180355-d29d-44cb-9930-e3f10fe79d30', 'kezarinivu@mailinator.com', 'Quae delectus sunt', 'quae5665', '$2y$10$vAKGM9q6DQHezwLAXsPXx.ORLje9.ZzfAVm2FA2/0txpDCS9BCEZS', 'STUDENT', 1, NULL, '2023-10-21 15:31:27', '2023-10-21 15:31:27', 'quae5665', NULL),
 ('552ff1c9-8fb0-465e-855d-a3504324a6f1', 'a80c10d4-31b6-4c03-b669-31c1171de7e4', 'qefuzy@mailinator.com', 'Ea excepturi non rer', 'ea1223', '$2y$10$awvCCWEchNxTTSkNySAbj.y.GTEdRxHUB.fM9HzKNuY4cgiW4QjsW', 'STUDENT', 1, NULL, '2023-10-21 17:40:11', '2023-10-21 17:40:11', 'ea1223', NULL),
 ('8e1629ae-fbea-447b-aaf1-8aac711e0f29', 'a273e913-fa52-4ddc-b8e1-439c54b7a94a', 'syqocy@mailinator.com', 'Cillum sint minus mo', 'cillum5199', '$2y$10$wm9YwyoLzhy1QD9uGQN0ReyVG6uPtv24vVjXDjMMOkwBa55QuJvIO', 'STUDENT', 1, NULL, '2023-10-21 15:30:53', '2023-10-21 15:30:53', 'cillum5199', NULL),
@@ -398,7 +435,7 @@ INSERT INTO `users` (`id`, `userable_id`, `email`, `name`, `username`, `password
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_paket_kurbans`
+-- Struktur dari tabel `user_paket_kurbans`
 --
 
 CREATE TABLE `user_paket_kurbans` (
@@ -414,14 +451,14 @@ CREATE TABLE `user_paket_kurbans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `user_paket_kurbans`
+-- Dumping data untuk tabel `user_paket_kurbans`
 --
 
 INSERT INTO `user_paket_kurbans` (`id`, `user_id`, `hewan_kurbans_id`, `deleted_at`, `created_at`, `updated_at`, `status_paid`, `jumlah_bayar`, `resi_img`) VALUES
 (3, '1fcece5f-e231-4b35-b532-493c64f8ab87', 4, '2023-10-24 14:04:35', '2023-10-21 15:23:32', '2023-10-24 14:04:35', 0, 200000, '1698010202_312806603_2517484821738645_4013354508290473486_n.jpg'),
 (4, '8e1629ae-fbea-447b-aaf1-8aac711e0f29', 4, NULL, '2023-10-21 15:30:53', '2023-10-22 13:30:02', 1, 200000, '1698010202_312806603_2517484821738645_4013354508290473486_n.jpg'),
 (5, '41de9d8f-8008-4106-9c30-bbb9422232d1', 2, '2023-10-24 14:04:41', '2023-10-21 15:31:27', '2023-10-24 14:04:41', 0, 200000, '1698010202_312806603_2517484821738645_4013354508290473486_n.jpg'),
-(6, '552ff1c9-8fb0-465e-855d-a3504324a6f1', 3, NULL, '2023-10-21 17:40:11', '2023-10-23 15:13:56', 1, 200000, '1698101730_56ae1e7facc52.jpeg'),
+(6, '552ff1c9-8fb0-465e-855d-a3504324a6f1', 3, NULL, '2023-10-21 17:40:11', '2023-10-27 19:03:01', 2, 200000, '1698101730_56ae1e7facc52.jpeg'),
 (7, 'b9ee0e82-9d72-45d0-8069-e58ace87c6f8', 2, NULL, '2023-10-21 17:41:56', '2023-10-23 15:12:49', 2, 200000, '1698010202_312806603_2517484821738645_4013354508290473486_n.jpg'),
 (8, '2e5618cd-5b9b-45b9-b623-2c79a43ebeec', 2, NULL, '2023-10-21 17:44:50', '2023-10-21 17:44:50', 2, 200000, '1698010202_312806603_2517484821738645_4013354508290473486_n.jpg'),
 (9, '0f0fae7a-a253-44e4-ae96-2517d23bceb0', 3, NULL, '2023-10-21 18:40:05', '2023-10-24 14:03:23', 0, 200000, '1698010202_312806603_2517484821738645_4013354508290473486_n.jpg');
@@ -429,7 +466,7 @@ INSERT INTO `user_paket_kurbans` (`id`, `user_id`, `hewan_kurbans_id`, `deleted_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `visit_documentations`
+-- Struktur dari tabel `visit_documentations`
 --
 
 CREATE TABLE `visit_documentations` (
@@ -441,7 +478,7 @@ CREATE TABLE `visit_documentations` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `visit_letters`
+-- Struktur dari tabel `visit_letters`
 --
 
 CREATE TABLE `visit_letters` (
@@ -466,79 +503,85 @@ CREATE TABLE `visit_letters` (
 --
 
 --
--- Indexes for table `agenda_meetings`
+-- Indeks untuk tabel `agenda_meetings`
 --
 ALTER TABLE `agenda_meetings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `certificates`
+-- Indeks untuk tabel `certificates`
 --
 ALTER TABLE `certificates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `employees`
+-- Indeks untuk tabel `employees`
 --
 ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `employee_activities`
+-- Indeks untuk tabel `employee_activities`
 --
 ALTER TABLE `employee_activities`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `hewan_kurbans`
+-- Indeks untuk tabel `hewan_kurbans`
 --
 ALTER TABLE `hewan_kurbans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ijazah`
+-- Indeks untuk tabel `hewan_kurban_v2_s`
+--
+ALTER TABLE `hewan_kurban_v2_s`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `ijazah`
 --
 ALTER TABLE `ijazah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `jenis_hewans`
+-- Indeks untuk tabel `jenis_hewans`
 --
 ALTER TABLE `jenis_hewans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `letters`
+-- Indeks untuk tabel `letters`
 --
 ALTER TABLE `letters`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `letter_dispositions`
+-- Indeks untuk tabel `letter_dispositions`
 --
 ALTER TABLE `letter_dispositions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `meetings`
+-- Indeks untuk tabel `meetings`
 --
 ALTER TABLE `meetings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `notulas`
+-- Indeks untuk tabel `notulas`
 --
 ALTER TABLE `notulas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `personal_access_tokens`
+-- Indeks untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -546,66 +589,72 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `student`
+-- Indeks untuk tabel `student`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_username_unique` (`username`);
 
 --
--- Indexes for table `user_paket_kurbans`
+-- Indeks untuk tabel `user_paket_kurbans`
 --
 ALTER TABLE `user_paket_kurbans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `visit_documentations`
+-- Indeks untuk tabel `visit_documentations`
 --
 ALTER TABLE `visit_documentations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `visit_letters`
+-- Indeks untuk tabel `visit_letters`
 --
 ALTER TABLE `visit_letters`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `hewan_kurbans`
+-- AUTO_INCREMENT untuk tabel `hewan_kurbans`
 --
 ALTER TABLE `hewan_kurbans`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `jenis_hewans`
+-- AUTO_INCREMENT untuk tabel `hewan_kurban_v2_s`
+--
+ALTER TABLE `hewan_kurban_v2_s`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `jenis_hewans`
 --
 ALTER TABLE `jenis_hewans`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
+-- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user_paket_kurbans`
+-- AUTO_INCREMENT untuk tabel `user_paket_kurbans`
 --
 ALTER TABLE `user_paket_kurbans`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;

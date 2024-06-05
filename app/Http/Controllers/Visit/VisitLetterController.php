@@ -91,7 +91,7 @@ class VisitLetterController extends Controller
         $visitDB->alamat= $request->alamat;
         $visitDB->ket= $request->ket;
         $visitDB->save();
-        return $request->all();        
+       
 
         return redirect()->route('visit_letter.index')
         ->with('success', 'Data berhasil ditambahkan');

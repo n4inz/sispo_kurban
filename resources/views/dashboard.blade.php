@@ -79,14 +79,15 @@
 
 <script>
     const ctx = document.getElementById('myChart');
-  
+    var years = {{ json_encode($years) }};
+    var dataCount = {{ json_encode($dataCounts) }};
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['2018', '2019', '2020', '2021', '2023', '2024'],
+        labels: years,
         datasets: [{
           label: 'Data Kurban',
-          data: [12, 19, 3, 5, 2, 3],
+          data: dataCount,
           borderWidth: 1
         }]
       },
@@ -104,10 +105,10 @@
     new Chart(ctx2, {
         type: 'pie',
         data: {
-        labels: ['2018', '2019', '2020', '2021', '2023', '2024'],
+        labels: years,
         datasets: [{
             label: 'Data Kurban',
-            data: [12, 19, 3, 5, 2, 3],
+            data: dataCount,
             borderWidth: 1
         }]
         },
@@ -125,10 +126,10 @@
     new Chart(ctxLine, {
       type: 'line',
       data: {
-      labels: ['2018', '2019', '2020', '2021', '2023', '2024'],
+      labels: years,
       datasets: [{
           label: 'Data Kurban',
-          data: [12, 19, 3, 5, 2, 3],
+          data: dataCount,
           borderWidth: 1
       }]
       },

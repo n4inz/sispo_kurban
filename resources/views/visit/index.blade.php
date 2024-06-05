@@ -50,7 +50,7 @@
                     <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
                         <div class="overflow-hidden">
                             <table id="table-jadwal" class="min-w-full border-separate table-spacing">
-                                <thead class="bg-primary dark:bg-primary">
+                                <thead class="bg-[#005331] dark:bg-primary">
                                     <tr>
                                         <th scope="col"
                                             class="rounded-l-lg py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\HewanKurban;
+use App\Models\HewanKurbanV2;
 use App\Models\Student;
 use App\Models\User;
 use App\Models\UserPaketKurban;
 use App\Service\Database\EmployeeService;
 use App\Service\Database\UserService;
+use Carbon\Carbon;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +17,17 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        
+        $currentYear = Carbon::now()->year;
+        $years = [];
+        $dataCounts = [];
+        for ($i = 5; $i >= 0; $i--) {
+            $year = $currentYear - $i;
+            $years[] = $currentYear - $i;
+            $count = HewanKurbanV2::whereYear('created_at', $year)->count();
+            $dataCounts[] = $count;
+        }
+
+      
         $user = Auth::user();
 
         $employeeDB = new EmployeeService;
@@ -68,6 +80,6 @@ class DashboardController extends Controller
             'waiting' => $waiting,
         ];
         
-        return view('dashboard', compact('user' , 'datas'));
+        return view('dashboard', compact('user' , 'datas','years','dataCounts'));
     }
 }

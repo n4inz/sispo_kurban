@@ -1,21 +1,21 @@
-<ul class="pt-4 mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700">
+<ul class="pt-4 mt-4 space-y-2 text-white border-t border-gray-200 dark:border-gray-700">
     @if ($user->role == 'ADMIN')
     <li>
         <a href="{{ route('dashboard') }}"
-            class="{{ Route::currentRouteName() === 'dashboard' ? 'border-l-8 border-l-primary bg-gray-100 -ml-2' : '' }}
-            flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+            class="{{ Route::currentRouteName() === 'dashboard' ? 'border-l-8 border-l-primary  -ml-2' : '' }}
+            flex items-center p-2 text-base font-normal text-gray-900 rounded-lg   dark:hover:bg-gray-700">
             <i
-                class="fa-solid fa-chart-pie text-lg text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
-            <span class="ml-3">Dashboard</span>
+                class="fa-solid fa-chart-pie text-lg text-white transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
+            <span class="ml-3 text-white">Dashboard</span>
         </a>
     </li>
     @endif
     @if ($user->role == 'ADMIN' || $user->role == 'EMPLOYEE' || $user->role == 'HEADMASTER' || $user->role == 'STUDENT')
     <li>
         <a href="{{route('visit_letter.index')}}"
-            class="{{Route::currentRouteName() === 'visit_letter.index' || Route::currentRouteName() === 'visit_letter.detail' ? 'border-l-8 border-l-primary bg-gray-100 -ml-2' : '' }} flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-            <i class="fa fa-file text-lg text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
-            <span class="ml-3">Hewan Kurban</span>
+            class="{{Route::currentRouteName() === 'visit_letter.index' || Route::currentRouteName() === 'visit_letter.detail' ? 'border-l-8 border-l-primary  -ml-2' : '' }} flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white ">
+            <i class="fa fa-file text-lg text-white transition duration-75 dark:text-gray-400 "></i>
+            <span class="ml-3 text-white">Hewan Kurban</span>
         </a>
     </li>
     {{-- @if ($user->role !== 'EMPLOYEE')
@@ -118,10 +118,10 @@
     <li>
         {{-- <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a href="{{ route('dashboard') }}"><i class="icon-home"></i><span>Dashboard</span></a></li> --}}
         <a href="{{ route('logout') }}"
-            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white ">
             <i
                 class="fa-solid fa-arrow-right-from-bracket text-lg text-red-500 transition duration-75 dark:text-red-400 group-hover:text-red-900 dark:group-hover:text-white"></i>
-            <span class="ml-3">Keluar</span>
+            <span class="ml-3 text-white">Keluar</span>
         </a>
     </li>
 </ul>
