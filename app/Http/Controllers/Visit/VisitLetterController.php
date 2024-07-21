@@ -30,7 +30,6 @@ class VisitLetterController extends Controller
         $visit = $visitDB->index()['data'] ?? [];
         
         $tgl_visits = [];
-        
         return view('visit.index', compact('user', 'tgl_visits'));
     }
 
