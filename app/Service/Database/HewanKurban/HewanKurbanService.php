@@ -14,7 +14,9 @@ class HewanKurbanService{
 
     public function index($filter = [])
     {
-        $orderBy = $filter['order_by'] ?? 'DESC';
+        // $orderBy = $filter['order_by'] ?? 'DESC';
+        $orderBy = 'DESC';
+
         $per_page = $filter['per_page'] ?? 99;
         $no_surat = $filter['no_surat'] ?? null;
         $status = $filter['status'] ?? null;

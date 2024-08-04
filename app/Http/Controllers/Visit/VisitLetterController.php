@@ -75,6 +75,7 @@ class VisitLetterController extends Controller
 
     public function create(Request $request)
     {   
+        // return $request;
         //https://medium.com/@akhwan90/laravel-queue-membuat-fitur-import-data-pegawai-excel-3f1561b25e0
         // https://opensource.box.com/spout/getting-started/
         $user = $request->user();
@@ -88,6 +89,7 @@ class VisitLetterController extends Controller
         $visitDB->jumlah_hewan = $request->jumlah_hewan;
         $visitDB->nama_keluarga= $request->keluarga;
         $visitDB->alamat= $request->alamat;
+        $visitDB->kecamatan= $request->kecamatan;
         $visitDB->ket= $request->ket;
         $visitDB->save();
        
@@ -109,13 +111,17 @@ class VisitLetterController extends Controller
 
     public function update($visitLetterId, Request $request)
     {
-        $hewanKurban  = HewanKurban::find($visitLetterId);
+        $user = $request->user();
+        $hewanKurban  = HewanKurbanV2::find($visitLetterId);
 
+        $hewanKurban->user_id = $user->id;
         $hewanKurban->nama_hewan = $request->nama_hewan;
         $hewanKurban->jenis = $request->jenis;
         $hewanKurban->harga = $request->harga;
-        $hewanKurban->jumlah_peserta = $request->peserta;
-        $hewanKurban->harga_per_orang = $request->harga_per_orang;
+        $hewanKurban->jumlah_hewan = $request->jumlah_hewan;
+        $hewanKurban->nama_keluarga= $request->keluarga;
+        $hewanKurban->alamat= $request->alamat;
+        $hewanKurban->kecamatan= $request->kecamatan;
         $hewanKurban->ket= $request->ket;
 
         $hewanKurban->save();
@@ -129,7 +135,7 @@ class VisitLetterController extends Controller
 
     public function delete($visitLetterId)
     {
-       $hewanKurban = HewanKurban::find($visitLetterId);
+       $hewanKurban = HewanKurbanV2::find($visitLetterId);
         $hewanKurban->delete();
         return redirect()->route('visit_letter.index')
             ->with('success', 'Data berhasil dihapus');

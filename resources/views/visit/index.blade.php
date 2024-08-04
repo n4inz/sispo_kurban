@@ -80,6 +80,11 @@
                                         class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
                                             Alamat
                                         </th>
+
+                                        <th scope="col"
+                                        class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
+                                            Aksi
+                                        </th>
                                      
                                     </tr>
                                 </thead>
@@ -134,6 +139,11 @@
                                         class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
                                             Alamat
                                         </th>
+
+                                        <th scope="col"
+                                        class="py-6 px-6 text-xs font-medium tracking-wider text-left text-white uppercase dark:text-gray-400">
+                                            Aksi
+                                        </th>
                                      
                                     </tr>
                                 </thead>
@@ -150,7 +160,7 @@
         @include('visit.modal._add_visit_import_excel')
         @include('visit.modal._add_visit')
         @include('visit.modal._edit_visit')
-    
+        @include('visit.modal.kurban_mandiri')
 
 @endsection
 
@@ -279,36 +289,37 @@
                     $(`#table-${id}`).removeClass('dataTable');
                 }
 
-                // if (role === 'ADMIN'){
-                //     html += `
-                //             <td class="py-6 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                //                 ${data.status}
-                //             </td>
-                //             <td class="rounded-r-lg py-6 px-6 text-sm text-center font-medium flex-nowrap">
-                //                 <div class="inline-flex" role="group">
-                //                     <a href="{!! URL::to('/visit-letter/${data.id}/detail') !!}" class="text-white bg-primary opacity-90 hover:bg-blue-900 focus:ring-4 focus:ring-blue-700 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:bg-primary dark:hover:bg-blue-900 dark:focus:ring-blue-700">
-                //                         <i class="fa-solid fa-eye"></i>
-                //                     </a>
-                //                     <button type="button"
-                //                 onclick="btnEditVisit('${data.id}', '${data.nama_hewan}', '${data.jenis}', '${data.harga}', '${data.jumlah_peserta}', '${data.harga_per_orang}', '${data.ket}')"
-                //                 data-modal-toggle="modal-edit-visit"
-                //                 class="text-white bg-yellow-400 opacity-90 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
-                //                 <i class="fa-solid fa-pen-to-square"></i>
-                //             </button>
-                //                     <form
-                //                         action="${deleteRoute}"
-                //                         method="POST" enctype="multipart/form-data">
-                //                         @csrf
-                //                         @method('delete')
-                //                         <button type="submit"
-                //                             class="text-white bg-red-700 opacity-90 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                //                             <i class="fa-solid fa-trash"></i>
-                //                         </button>
-                //                     </form>
-                //                 </div>
-                //             </td>
-                //         `
-                // }
+                if (role === 'ADMIN'){
+                    // <td class="py-6 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    //             ${data.status}
+                    //         </td>
+                    html += `
+             
+                            <td class="rounded-r-lg py-6 px-6 text-sm text-center font-medium flex-nowrap">
+                                <div class=" inline-flex" role="group">
+                                    <a href="{!! URL::to('/visit-letter/${data.id}/detail') !!}" class="hidden text-white bg-primary opacity-90 hover:bg-blue-900 focus:ring-4 focus:ring-blue-700 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:bg-primary dark:hover:bg-blue-900 dark:focus:ring-blue-700">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                    <button type="button"
+                                onclick="btnEditVisit('${data.id}', '${data.nama_hewan}', '${data.jenis}', '${data.harga}', '${data.jumlah_hewan}', '${data.nama_keluarga}', '${data.kecamatan}', '${data.alamat}', '${data.ket}')"
+                                data-modal-toggle="modal-edit-visit"
+                                class="text-white bg-yellow-400 opacity-90 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                                    <form
+                                        action="${deleteRoute}"
+                                        method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit"
+                                            class="text-white bg-red-700 opacity-90 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        `
+                }
                 html += `</tr>`
             });
             $(`#render-${id}`).html(html);
@@ -320,17 +331,17 @@
             let tgl = $('#tgl-visits option:selected').val();
             getVisits(tgl);
         }
-
-        function btnEditVisit(id, nama_hewan, jenis, harga, peserta ,harga_per_orang, ket ) {
+       
+        function btnEditVisit(id, nama_hewan, jenis, harga, jumlah_hewan ,nama_keluarga, kecamatan ,alamat ,ket ) {
             toggleModal('modal-edit-visit', true);
-
+            
             $('#modal-edit-visit #nama_hewan').val(nama_hewan);
             $('#modal-edit-visit #jenis').val(jenis);
             $('#modal-edit-visit #harga').val(harga);
-            $('#modal-edit-visit #peserta').val(peserta);
-            $('#modal-edit-visit #kode').val('KRB-'+id);
-            $('#modal-edit-visit #harga_per_orang').val(harga_per_orang);
-            // $('#modal-edit-visit #tempat').val(tempat);
+            $('#modal-edit-visit #keluarga').val(nama_keluarga);
+            $('#modal-edit-visit #alamat').val(alamat);
+            $('#modal-edit-visit #jumlah_hewan').val(jumlah_hewan);
+            $('#modal-edit-visit #kecamatan').val(kecamatan);
             $('#modal-edit-visit #ket').val(ket);
             // $(`#modal-edit-visit #status`).val(status);
             // $(`#modal-edit-visit #dokumentasi-imgs`).attr('src', `storage/${dokumentasi}`).attr('src');

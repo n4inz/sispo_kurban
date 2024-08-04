@@ -27,7 +27,16 @@ class DashboardController extends Controller
             $dataCounts[] = $count;
         }
 
-      
+       
+        $kecs = ['Soreang', 'Ujung', 'Bacukiki', 'Bacukiki barat'];
+        $kecCounts = [];
+        
+        foreach (array_reverse($kecs) as $kec) {
+            $count = HewanKurbanV2::where('kecamatan', $kec)->count();
+            $kecCounts[] = $count;
+        }
+        
+
         $user = Auth::user();
 
         $employeeDB = new EmployeeService;
@@ -80,6 +89,6 @@ class DashboardController extends Controller
             'waiting' => $waiting,
         ];
         
-        return view('dashboard', compact('user' , 'datas','years','dataCounts'));
+        return view('dashboard', compact('user' , 'datas','years','dataCounts' ,'kecCounts','kecs'));
     }
 }

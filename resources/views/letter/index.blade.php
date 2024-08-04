@@ -10,7 +10,6 @@
     <p class="mb-8 text-2xl font-semibold text-gray-800">
         {{Route::currentRouteName() === 'letter.in.index' ? 'Surat Masuk' : 'Surat Keluar'}}
     </p>
-
     <div class="grid justify-items-end mb-4">
         <div class="flex flex-row">
             <label for="tgl-surats" class="mr-2 block my-auto text-md font-medium text-gray-900 dark:text-gray-400">Filter Tanggal Surat</label>

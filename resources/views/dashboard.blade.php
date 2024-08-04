@@ -122,14 +122,15 @@
     });
 
     const ctxLine = document.getElementById('myChartLine');
-  
+    var kecs = ['Soreang', 'Ujung', 'Bacukiki', 'Bacukiki barat'];
+    var kecCount = {{ json_encode($kecCounts) }};
     new Chart(ctxLine, {
       type: 'line',
       data: {
-      labels: years,
+      labels: kecs,
       datasets: [{
-          label: 'Data Kurban',
-          data: dataCount,
+          label: 'Data Kurban per Kecamatan',
+          data: kecCount,
           borderWidth: 1
       }]
       },
