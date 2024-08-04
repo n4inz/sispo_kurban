@@ -121,6 +121,7 @@
         }
     });
 
+    
     const ctxLine = document.getElementById('myChartLine');
     var kecs = ['Soreang', 'Ujung', 'Bacukiki', 'Bacukiki barat'];
     var kecCount = {{ json_encode($kecCounts) }};
